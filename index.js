@@ -4,7 +4,7 @@
  * Get environment variable or fall back to default value if not
  * available.
  * Throws an error if variable is not found and no default value
- * is not supplied.
+ * is supplied.
  *
  * @param {string} name Name of key to get from process.env
  * @param {*} [defaultValue] Default value
