@@ -3,7 +3,7 @@
 A little function that reads an environment variable from
 `process.env` with support for default values.
 
-It will thrown an exception if key key can't be found and no default
+It will thrown an exception if key can't be found and no default
 value is supplied. `undefined` is supported as a default value since
 the module uses `arguments.length` to determine if a default value was
 passed.
