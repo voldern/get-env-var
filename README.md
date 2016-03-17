@@ -1,7 +1,8 @@
 # get-env-var
 
 A little function that reads an environment variable from
-`process.env` with support for default values.
+`process.env` with support for default values and a optional mapping
+function applied to the data read from the environment.
 
 It will thrown an exception if key can't be found and no default
 value is supplied.
@@ -16,7 +17,9 @@ value is supplied.
 ```javascript
 var getEnvVar = require('get-env-var');
 
-var value = getEnvVar('foobar', 'defaultValue');
+getEnvVar('SOME_VAL', 'defaultValue');
+getEnvVar('SOME_INT_VAL', Number.parseInt);
+getEnvVar('SOME_INT_VAL', 20, Number.parseInt);
 ```
 
 # License
