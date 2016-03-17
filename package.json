@@ -26,5 +26,8 @@
     "randomstring": "^1.1.4",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "compose-function": "^3.0.3"
   }
 }

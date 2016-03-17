@@ -50,3 +50,39 @@ test('should not apply mapping function to default value', function(t) {
     t.plan(1);
     t.equal(getEnvVar(randomstring.generate(), '10', Number.parseInt), '10');
 });
+
+test('boolean version', function(t) {
+    t.plan(6);
+
+    var key = randomstring.generate();
+    process.env[key] = 'true';
+
+    t.equal(getEnvVar.boolean(key), true);
+
+    process.env[key] = 'false';
+    t.equal(getEnvVar.boolean(key), false);
+
+    process.env[key] = 'foo';
+    t.equal(getEnvVar.boolean(key), false);
+
+    process.env[key] = 'true';
+    t.equal(getEnvVar.boolean(key, function(value) {
+        t.equal(value, true);
+
+        return 'test';
+    }), 'test');
+
+    t.equal(getEnvVar.boolean(randomstring.generate(), 'test'), 'test');
+});
+
+test('integer version', function(t) {
+    t.plan(2);
+
+    var key = randomstring.generate();
+    process.env[key] = '15';
+
+    t.equal(getEnvVar.integer(key), 15);
+
+    process.env[key] = 'asd';
+    t.ok(isNaN(getEnvVar.integer(key)));
+});

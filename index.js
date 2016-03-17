@@ -1,5 +1,22 @@
 'use strict';
 
+var compose = require('compose-function');
+
+function callWithGenericFunction(name, defaultValue, mappingFunction, genericFunction) {
+    if (!mappingFunction && typeof defaultValue === 'function') {
+        mappingFunction = defaultValue;
+        defaultValue = undefined;
+    }
+
+    if (!mappingFunction) {
+        mappingFunction = genericFunction;
+    } else {
+        mappingFunction = compose(mappingFunction, genericFunction);
+    }
+
+    return module.exports(name, defaultValue, mappingFunction);
+}
+
 /**
  * Get environment variable or fall back to default value if not
  * available.
@@ -31,4 +48,16 @@ module.exports = function getEnvVar(name, defaultValue, mappingFunction) {
     }
 
     return process.env[name];
+};
+
+module.exports.integer = function getIntegerEnvVar(name, defaultValue, mappingFunction) {
+    return callWithGenericFunction(name, defaultValue, mappingFunction, function(value) {
+        return parseInt(value, 10);
+    });
+};
+
+module.exports.boolean = function getBooleanEnvVar(name, defaultValue, mappingFunction) {
+    return callWithGenericFunction(name, defaultValue, mappingFunction, function(value) {
+        return value === 'true';
+    });
 };

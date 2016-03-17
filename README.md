@@ -22,6 +22,21 @@ getEnvVar('SOME_INT_VAL', Number.parseInt);
 getEnvVar('SOME_INT_VAL', 20, Number.parseInt);
 ```
 
+# Shorthands
+
+The following shorthand methods currently exists. They have the same
+API as the generic method. The mapping function is applied to the
+transformed value.
+
+## Boolean
+
+`getEnvVar.boolean` is a shorthand method that returns true if the
+value equals 'true' and false in all other cases.
+
+## Integer
+
+`getEnvVar.integer` is a shorthand method that calls `parseInt(value, 10)`.
+
 # License
 
 MIT
