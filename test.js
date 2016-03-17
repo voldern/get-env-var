@@ -23,11 +23,15 @@ test('should fallback to default value', function(t) {
 });
 
 test('should throw error when variable is not set and no default value is supplied', function(t) {
-    t.plan(1);
+    t.plan(2);
 
     var key = randomstring.generate();
 
     t.throws(function() {
         getEnvVar(key);
+    }, /Environment variable .* is not set/);
+
+    t.throws(function() {
+        getEnvVar(key, undefined);
     }, /Environment variable .* is not set/);
 });

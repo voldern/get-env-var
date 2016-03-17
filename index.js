@@ -11,7 +11,7 @@
  * @return {*}
  */
 module.exports = function getEnvVar(name, defaultValue) {
-    if (!process.env.hasOwnProperty(name) && arguments.length <= 1) {
+    if (!process.env.hasOwnProperty(name) && defaultValue === undefined) {
         throw new Error('Environment variable ' + name + ' is not set');
     }
 
