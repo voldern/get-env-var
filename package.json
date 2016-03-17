@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/voldern/get-env-var#readme",
   "devDependencies": {
-    "eslint": "^1.7.3",
-    "eslint-config-vgno": "^4.0.1",
-    "randomstring": "^1.1.0",
-    "tap-spec": "^4.1.0",
-    "tape": "^4.2.2"
+    "eslint": "^1.10.3",
+    "eslint-config-vgno": "^5.0.0",
+    "randomstring": "^1.1.4",
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "compose-function": "^3.0.3"
   }
 }
