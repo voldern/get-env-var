@@ -4,7 +4,7 @@ A little function that reads an environment variable from
 `process.env` with support for default values and a optional mapping
 function applied to the data read from the environment.
 
-It will thrown an exception if key can't be found and no default
+It will throw an exception if key can't be found and no default
 value is supplied.
 
 [![build status](https://travis-ci.org/voldern/get-env-var.svg)](https://travis-ci.org/voldern/get-env-var)
